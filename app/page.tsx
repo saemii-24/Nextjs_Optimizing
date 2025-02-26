@@ -1,14 +1,40 @@
-import TouchClick from '@/components/TouchClick';
-
 export const metadata = {
-	title: 'Touch vs Click',
+	title: 'Optimizing 실습',
 };
 
 export default function Page() {
 	return (
-		<h1 className='bg-red-50 text-red-800'>
-			버튼
-			<TouchClick />
-		</h1>
+		<>
+			<p className='font-noto'>
+				폰트가 적용되었는지 살펴볼까요?
+				<br />
+				Let&apos;s check if the font has been applied properly.
+			</p>
+			<p className='font-roboto'>
+				폰트가 적용되었는지 살펴볼까요?
+				<br />
+				Let&apos;s check if the font has been applied properly.
+			</p>
+			<p className='font-sourceCodePro'>
+				폰트가 적용되었는지 살펴볼까요?
+				<br />
+				Let&apos;s check if the font has been applied properly.
+			</p>
+			<p className='font-sourceCodeProBold'>
+				폰트가 적용되었는지 살펴볼까요?
+				<br />
+				Let&apos;s check if the font has been applied properly.
+			</p>
+			<p className='font-pretendard'>
+				폰트가 적용되었는지 살펴볼까요?
+				<br />
+				Let&apos;s check if the font has been applied properly.
+			</p>
+			<p className='font-pretendardVariable'>
+				폰트가 적용되었는지 살펴볼까요?
+				<br />
+				Let&apos;s check if the font has been applied properly.
+			</p>
+		</>
 	);
 }

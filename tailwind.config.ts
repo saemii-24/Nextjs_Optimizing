@@ -7,7 +7,16 @@ module.exports = {
 		'./app/(root)/**/*.{js,ts,jsx,tsx,mdx}',
 	],
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+				noto: ['var(--font-noto)'],
+				roboto: ['var(--font-roboto)'],
+				sourceCodePro: ['var(--font-source-400)'],
+				sourceCodeProBold: ['var(--font-source-700)'],
+				pretendard: ['var(--font-pretendard)'],
+				pretendardVariable: ['var(--font-pretendard--variable)'],
+			},
+		},
 	},
 	plugins: [],
 };
