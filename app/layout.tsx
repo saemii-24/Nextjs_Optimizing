@@ -1,7 +1,6 @@
 import './globals.css';
 import Provider from './Provider';
 import Header from '@/components/Header';
-import {Noto_Sans_KR} from 'next/font/google';
 import {
 	noto,
 	roboto,
@@ -10,6 +9,7 @@ import {
 	pretendard,
 	pretendardVariable,
 } from '@/styles/font';
+import {WebVitals} from './_components/web-vitals';
 
 // const noto = Noto_Sans_KR({
 // 	weight: ['400', '700'],
@@ -29,9 +29,9 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 			lang='ko'
 			className={`${noto.variable} ${roboto.variable} ${sourceCodePro400.variable} ${sourceCodePro700.variable} ${pretendard.variable} ${pretendardVariable.variable}`}>
 			<body>
+				<WebVitals />
 				<Provider>
 					<Header />
-					<p>어떻게 불러와질까요?</p>
 					{children}
 				</Provider>
 			</body>
