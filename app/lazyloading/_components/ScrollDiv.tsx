@@ -1,23 +1,28 @@
 import React, {useState, useEffect} from 'react';
-
-export function delay<T>(promise: Promise<T>, delay: number): Promise<T> {
-	return new Promise((resolve) => setTimeout(() => resolve(promise), delay));
-}
+import {delay} from './delay';
 
 const ScrollDiv = () => {
 	const [isVisible, setIsVisible] = useState(false);
 
 	useEffect(() => {
-		const timer = delay(Promise.resolve(), 2000);
-		timer.then(() => setIsVisible(true));
+		const loadContent = async () => {
+			await delay(2000); // 2초 대기
+			setIsVisible(true); // 상태 업데이트
+		};
+
+		loadContent();
 	}, []);
 
 	return (
-		isVisible && (
-			<div className='center-flex h-[500px] w-full bg-orange-200'>
-				뷰포인트에 들어왔습니다!
-			</div>
-		)
+		<>
+			{isVisible ? (
+				<div className='center-flex h-[500px] w-full bg-orange-200'>
+					뷰포인트에 들어왔습니다!
+				</div>
+			) : (
+				<LoadingSpinner /> // 로딩 스피너 표시
+			)}
+		</>
 	);
 };
 
