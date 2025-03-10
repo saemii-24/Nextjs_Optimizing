@@ -2,6 +2,7 @@
 import React, {useState} from 'react';
 import Image from 'next/image';
 import Jjanggu from '../../../public/jjanggu.jpg';
+import Jjanggu2 from '../../../public/jjanggu2.webp';
 import {cn} from 'utils/cn';
 
 const Optional = () => {
@@ -12,6 +13,7 @@ const Optional = () => {
 
 	const [isLoad, setIsLoad] = useState<string>('이미지 로드 중입니다.');
 	const [isError, setIsError] = useState<string>('이미지 로드 중입니다.');
+	const [isClicked, setIsClicked] = useState<boolean>(false);
 
 	return (
 		<div className='container  mx-auto'>
@@ -149,6 +151,41 @@ const Optional = () => {
 						<ul className={textul}>
 							<li>
 								🔹 이미지가 로드되는 중 에러가 발생할 때의 상황을 설정한다.
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li className={liclass}>
+					<h1 className={h1}>🖼️ src override</h1>
+					<div className={cn('', div)}>
+						<figure>
+							<Image
+								src={
+									'https://i.namu.wiki/i/X0IJUdG5xTDlORumsZUdk28E5tnLZIhb4vr9olsD0QRYn2uWAahRU_MrXrpErdAql3cNLR5cY0Tw4sKi29TW8g.webp'
+								}
+								overrideSrc={
+									isClicked
+										? `https://i.namu.wiki/i/JZhjW3kQarQRQ8rNailLaCGZEYHIA2joCs_ttsZxAWk83erw6O8katydeDxMJZCgVjXXf484gV7rgBrfhvY4Ww.webp`
+										: undefined
+								}
+								width={300}
+								height={430}
+								alt='광고 배너'
+								onClick={() => setIsClicked(true)}
+							/>
+							<figcaption>
+								{isClicked ? '오버라이딩 된 이미지' : '기본 src'}
+							</figcaption>
+						</figure>
+
+						<ul className={textul}>
+							<li>
+								🔹 Next js의 Image 컴포넌트는 최적화 된 srcset과 src 값을 자동
+								생성한다.
+							</li>
+							<li>
+								🔹 그러나 기존 img element에 인덱싱 되어 있는 값을 유지하고 싶을
+								때는 override가 필요한 경우가 있다.
 							</li>
 						</ul>
 					</div>
