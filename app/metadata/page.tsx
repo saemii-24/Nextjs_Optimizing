@@ -1,10 +1,4 @@
 import Link from 'next/link';
-import type {Metadata} from 'next';
-
-export const metadata: Metadata = {
-	title: '떡잎마을 방범대',
-	description: '우리는 떡잎마을 방범대!',
-};
 
 export default function MetadataPage() {
 	const characters = [
@@ -15,8 +9,27 @@ export default function MetadataPage() {
 		{id: '5', name: '맹구'},
 	];
 
+	//SEO 최적화
+	const jsonLd = {
+		'@context': 'https://schema.org',
+		'@type': 'Organization',
+		name: '떡잎마을 방범대',
+		description: '우리는 떡잎마을 방범대!',
+		member: characters.map((c) => ({
+			'@type': 'Person',
+			name: c.name,
+			url: `https://your-domain.com/metadata/${c.id}`,
+		})),
+	};
+
 	return (
 		<div className='container mx-auto p-4'>
+			{/* 구조화 데이터 삽입 */}
+			<script
+				type='application/ld+json'
+				dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
+			/>
+
 			<h1 className='mb-4 text-2xl font-bold'>떡잎마을 방범대</h1>
 			<p className='mb-6 text-gray-600'>
 				떡잎마을 방범대의 메타데이터를 확인해보세요
