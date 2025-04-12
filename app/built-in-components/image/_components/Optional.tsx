@@ -1,8 +1,8 @@
 'use client';
 import React, {useState} from 'react';
 import Image from 'next/image';
-import Jjanggu from '../../../public/jjanggu.jpg';
-import Jjanggu2 from '../../../public/jjanggu2.webp';
+import Jjanggu from '../../../../public/jjanggu.jpg'
+
 import {cn} from 'utils/cn';
 
 const Optional = () => {
@@ -13,7 +13,6 @@ const Optional = () => {
 
 	const [isLoad, setIsLoad] = useState<string>('이미지 로드 중입니다.');
 	const [isError, setIsError] = useState<string>('이미지 로드 중입니다.');
-	const [isClicked, setIsClicked] = useState<boolean>(false);
 
 	return (
 		<div className='container  mx-auto'>

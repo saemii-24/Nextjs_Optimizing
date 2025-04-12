@@ -1,15 +1,15 @@
-import './globals.css';
-import Provider from './Provider';
 import Header from '@/components/Header';
 import {
 	noto,
+	pretendard,
+	pretendardVariable,
 	roboto,
 	sourceCodePro400,
 	sourceCodePro700,
-	pretendard,
-	pretendardVariable,
 } from '@/styles/font';
 import {WebVitals} from './_components/web-vitals';
+import './globals.css';
+import Provider from './Provider';
 
 // const noto = Noto_Sans_KR({
 // 	weight: ['400', '700'],
@@ -32,7 +32,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 				<WebVitals />
 				<Provider>
 					<Header />
-					{children}
+					<main className='pt-14'>{children}</main>
 				</Provider>
 			</body>
 		</html>

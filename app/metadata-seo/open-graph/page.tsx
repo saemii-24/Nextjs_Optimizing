@@ -18,7 +18,7 @@ export default function MetadataPage() {
 		member: characters.map((c) => ({
 			'@type': 'Person',
 			name: c.name,
-			url: `https://your-domain.com/metadata/${c.id}`,
+			// url: `https://your-domain.com/metadata/${c.id}`, //배포후 수정
 		})),
 	};
 
@@ -38,7 +38,7 @@ export default function MetadataPage() {
 				{characters.map((character) => (
 					<Link
 						key={character.id}
-						href={`/metadata/${character.id}`}
+						href={`/metadata-seo/open-graph/${character.id}`}
 						className='rounded-lg border p-4 hover:bg-gray-50'>
 						<h2 className='text-xl font-semibold'>{character.name}</h2>
 						<p className='text-gray-600'>

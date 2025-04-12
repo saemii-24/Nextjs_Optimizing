@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import Jjanggu from '../../public/jjanggu.jpg';
+import Jjanggu from '../../../public/jjanggu.jpg'
+
 import Optional from './_components/Optional';
 export default function ImagePage() {
 	const liclass = 'w-full px-20 pt-12 pb-16 bg-gray-100 rounded-3xl';
