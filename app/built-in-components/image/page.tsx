@@ -1,28 +1,38 @@
 import Image from 'next/image';
-import Jjanggu from '../../../public/jjanggu.jpg'
-
+import Jjanggu from '../../../public/jjanggu.jpg';
 import Optional from './_components/Optional';
+
 export default function ImagePage() {
-	const liclass = 'w-full px-20 pt-12 pb-16 bg-gray-100 rounded-3xl';
-	const h1 = 'text-3xl font-bold mb-6';
-	const div = 'flex gap-20 items-center';
-	const textul = '*:text-xl *:font-medium flex flex-col gap-1';
 	return (
-		<>
-			<div className='container  mx-auto'>
-				<ul className='space-y-20 '>
-					<li className={liclass}>
-						<h1 className={h1}>🖼️ Local 이미지 불러오기</h1>
-						<div className={div}>
+		<div>
+			<div className='mx-auto max-w-6xl p-8'>
+				<h1 className='mb-8 text-4xl font-bold'>이미지 최적화</h1>
+
+				<section className='space-y-12'>
+					{/* Local 이미지 예제 */}
+					<div className='rounded-lg bg-white p-6'>
+						<h2 className='mb-6 text-2xl font-semibold'>
+							Local 이미지 불러오기
+						</h2>
+						<p className='mb-4 text-gray-600'>
+							Next.js의 Image 컴포넌트를 사용하여 로컬 이미지를 최적화하여
+							표시할 수 있다.
+						</p>
+						<div className='rounded-lg bg-gray-50 p-4'>
 							<Image src={Jjanggu} alt='짱구 이미지' />
-							<ul className={textul}>
-								<li>🔹 이미지의 src와 alt만 지정해주면 된다.</li>
-							</ul>
 						</div>
-					</li>
-					<li className={liclass}>
-						<h1 className={h1}>🖼️ Remote 이미지 불러오기</h1>
-						<div className={div}>
+					</div>
+
+					{/* Remote 이미지 예제 */}
+					<div className='rounded-lg bg-white p-6'>
+						<h2 className='mb-6 text-2xl font-semibold'>
+							Remote 이미지 불러오기
+						</h2>
+						<p className='mb-4 text-gray-600'>
+							외부 URL의 이미지를 불러올 때는 width와 height를 지정하고,
+							next.config.js에 remotePatterns를 설정해야 한다.
+						</p>
+						<div className='rounded-lg bg-gray-50 p-4'>
 							<Image
 								src={
 									'https://cdn.jaturi.kr/news/photo/202312/20546_30694_4036.jpg'
@@ -31,26 +41,30 @@ export default function ImagePage() {
 								width={300}
 								height={430}
 							/>
-							<ul className={textul}>
-								<li>🔹 width와 height를 지정해준다.</li>
-								<li>🔹 next.config.js에 remotePatterns를 작성한다.</li>
-							</ul>
 						</div>
-					</li>
-					<li className={liclass}>
-						<h1 className={h1}>🖼️ Priority 설정하기</h1>
-						<div className={div}>
+					</div>
+
+					{/* Priority 설정 예제 */}
+					<div className='rounded-lg bg-white p-6'>
+						<h2 className='mb-6 text-2xl font-semibold'>Priority 설정하기</h2>
+						<p className='mb-4 text-gray-600'>
+							LCP(Largest Contentful Paint) 최적화를 위해 priority 속성을 설정할
+							수 있다.
+						</p>
+						<div className='rounded-lg bg-gray-50 p-4'>
 							<Image src={Jjanggu} alt='짱구 이미지' priority />
-							<ul className={textul}>
-								<li>🔹 LCP 우선순위를 설정해준다. (이미지 미리 로드)</li>
-							</ul>
 						</div>
-					</li>
-					<li className={liclass}>
-						<h1 className={h1}>🖼️ responsive 설정하기</h1>
-						<div className={div}>
+					</div>
+
+					{/* Responsive 설정 예제 */}
+					<div className='rounded-lg bg-white p-6'>
+						<h2 className='mb-6 text-2xl font-semibold'>Responsive 설정하기</h2>
+						<p className='mb-4 text-gray-600'>
+							반응형 이미지를 구현하기 위해 sizes와 style 속성을 활용할 수 있다.
+						</p>
+						<div className='rounded-lg bg-gray-50 p-4'>
 							<div className='flex gap-4'>
-								<div className=' w-[200px]'>
+								<div className='w-[200px]'>
 									<Image
 										src={Jjanggu}
 										alt='짱구 이미지'
@@ -75,18 +89,16 @@ export default function ImagePage() {
 									/>
 								</div>
 							</div>
-
-							<ul className={textul}>
-								<li>
-									🔹 sizes를 설정하고 style에 직접 width와 height를 준다. auto를
-									사용해서 한 쪽에 맞추는 것도 가능
-								</li>
-							</ul>
 						</div>
-					</li>
-					<li className={liclass}>
-						<h1 className={h1}>🖼️ container 채우기</h1>
-						<div className={div}>
+					</div>
+
+					{/* Container 채우기 예제 */}
+					<div className='rounded-lg bg-white p-6'>
+						<h2 className='mb-6 text-2xl font-semibold'>Container 채우기</h2>
+						<p className='mb-4 text-gray-600'>
+							fill 속성을 사용하여 이미지를 컨테이너에 맞게 채울 수 있다.
+						</p>
+						<div className='rounded-lg bg-gray-50 p-4'>
 							<div
 								style={{
 									display: 'grid',
@@ -101,7 +113,6 @@ export default function ImagePage() {
 											width: '100px',
 											height: '100px',
 										}}>
-										{/* 높이를 조정 */}
 										<Image
 											src={Jjanggu}
 											alt='짱구 이미지'
@@ -114,14 +125,11 @@ export default function ImagePage() {
 									</div>
 								))}
 							</div>
-							<ul className={textul}>
-								<li>🔹 fill을 이용해 주어진 grid 칸에 딱 맞게 설정해주었다.</li>
-							</ul>
 						</div>
-					</li>
-				</ul>
+					</div>
+				</section>
 			</div>
 			<Optional />
-		</>
+		</div>
 	);
 }
