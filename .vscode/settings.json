@@ -22,5 +22,6 @@
 	"prettier.requireConfig": true,
 	"prettier.useEditorConfig": false,
 	"prettier.configPath": ".prettierrc",
-	"files.autoSave": "onFocusChange"
+	"files.autoSave": "onFocusChange",
+	"cSpell.words": ["jjanggu"]
 }
